@@ -28,7 +28,6 @@ def read_from_database(sql_query: str, config: dict):
         print(f"Failure on reading from database. Error : {e}")
 
 
-
 def execute_query(sql_query: str, config: dict):
     try:
         with ps.connect(**config) as conn:
@@ -39,8 +38,6 @@ def execute_query(sql_query: str, config: dict):
     except Exception as e:
         print(f"Failure on reading from database. Error : {e}")
         return False
-
-
 
 
 if __name__ == '__main__':
@@ -96,11 +93,7 @@ if __name__ == '__main__':
             else:
                 print("Not enough money for the raise")
 
-
-
-
-
-
+            
             pass
         case "5":
             emps = read_from_database("select emp_id, name from company.employees", config)
@@ -115,11 +108,6 @@ if __name__ == '__main__':
                 query = (f"INSERT INTO company.employees(name,date_of_birth,salary,starting_date,department_id)"
                          f" values ('{new_emp_data[0]}', '{new_emp_data[1]}', {new_emp_data[2]}, '{new_emp_data[3]}', {department_choice} )")
                 execute_query(query, config)
-
-
-
-
-
 
 
         case "6":
